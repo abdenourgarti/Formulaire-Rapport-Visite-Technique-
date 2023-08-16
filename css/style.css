@@ -1,0 +1,98 @@
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 70px 0px;
+    background: #0069d6;
+}
+.divider {
+    width:100px;
+    height: 2px;
+    background: #ffa500;
+    margin: 0 auto 20px;
+}
+.heading {
+    text-align: center;
+    padding-bottom: 40px;        
+}
+h2 {
+    text-transform: uppercase;
+    font-weight:bold;
+    color: #fff;
+}
+.page{
+    display: none;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.page-num{
+    border: 1px solid #0069d6;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+}
+.active{
+    color: #fff;
+    background-color: #d82c2e;
+}
+.passé{
+    color: #fff;
+    background-color: #0069d6;
+}
+#contact-form {
+    width: 100%;
+    font-size: 20px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+}
+.blue {
+    color: #0069d6;
+}
+.form-control {
+    height: 50px;
+    font-size: 18px;
+}
+#contact-form input[type=submit] {
+    margin: 40px auto 0px;
+    display: block;
+}
+.comments {
+    font-style: italic;
+    font-size: 18px;
+    color: #d82c2e;
+    height: 25px
+}
+#contact-form .thank-you {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 22px;
+}
+.button1 {
+    border: 1px solid #ddd;
+    background: #ffa500;
+    color: #fff;
+    width: 100%;        
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in 0s;
+}
+.button1:hover {
+    background: #333;
+    border-color: #ffa500;
+}
+.face{
+    border: 2px solid #0069d6;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.h4{
+    color: #0069d6; 
+    font-weight: bold;
+}

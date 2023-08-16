@@ -2038,7 +2038,7 @@ use Dompdf\Options;
                                             <li>Orientation de la face : '.$face_supp3_orient.'</li>
                                             <li>Commentaire : '.$commentaires_face_supp3.'</li>
                                         </ul>
-                                    </div><br>
+                                    </div><br><br>
                                 </div>
                                 <br><br><br><br><br><br><br>
                                 <ul class="ul">

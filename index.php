@@ -1,12 +1,25 @@
 <?php
+require __DIR__.'/vendor/autoload.php';
 
-use Dompdf\Dompdf;
-use Dompdf\Options;
+// use Spipu\Html2Pdf\Html2Pdf;
+// 
+// $html2pdf = new Html2Pdf();
 
-    require_once 'dompdf/autoload.inc.php';
-    $dompdf = new Dompdf(["chroot" => __DIR__]);
-    $dompdf ->setPaper("A4", "landscape");
-    
+ error_reporting(E_ALL);
+ ini_set('display_errors', 1);
+ ini_set('memory_limit', '512M');
+ use Dompdf\Dompdf;
+ use Dompdf\Options;
+
+
+     require_once 'dompdf/autoload.inc.php';
+     $dompdf = new Dompdf(["chroot" => __DIR__]);
+     $dompdf->setPaper("letter", "portrait");
+     
+    // $options = new Options();
+    // $options->set('isHtml5ParserEnabled', true);
+    // $options->set('isPhpEnabled', true);
+    // $dompdf = new Dompdf($options);
     $firstname = $name = $ville = $code_postal = $adresse = $annee_construc = $altitude = $surface = $facade_princ = $nbr_niveau_tot = $nbr_niveau_chauf = $nbr_prsn_foyer = $photos_maison = $photos_environnement = $img_carac_comble = $carac_plafonds = $img_carac_plafonds = $carac_placher = $enfouis_sous_sol = $enfouis_batiment = $form_batiment = $compos_murs_exter = $epaisseur_mur = $presence_isol = $epaisseur_isolant_mur_exter = $resistance_mur_exter = $annee_pose_isol_mur_exter = $commentaires_mur_extr = $presence_mitoy = $compos_plancher_haut = $epaisseur_plancher_haut = $presence_isol_plancher_haut = $epaisseur_isolant_plancher_haut = $resistance_plancher_haut = $annee_pose_isol_plancher_haut = $plancher_haut_surf_isol = $plancher_haut_type_isol = $commentaires_plancher_pls_type = $acces_comble = $dimensions_trap = $longueur_tuyau = $tour_trap = $tour_chemine = $sport_boitier_etc = $commentaires_plancher_haut_comble = $photos_plancher_haut = $photos_trap = $photos_spots = $photos_acces_camion = "";
     $compos_placher_bas_chauf = $epaisseur_plancher_bas = $presence_isol_plancher_bas = $epaisseur_isolant_plancher_bas = $resistance_plancher_bas = $annee_pose_isol_plancher_bas = $plancher_bas_surf_isol = $type_surf_isol = $hauteur_plancher_bas = $commentaires_plancher_bas_chauf = $photos_plancher_bas = $photos_plan_niveau1 = $photos_plan_niveau2 = $photos_plan_niveau3 = "";
     $face_avant_rep1 = $face_avant_rep2 = $face_avant_rep3 = $face_avant_rep4 = $photos_face_avant = $face_avant_rail_dep = $face_avant_couronnement = $face_avant_descente_ep = $face_avant_nbr_gonds = $face_avant_ml = $face_avant_surf_chaud = $face_avant_surf_froide_enduit = $face_avant_surf_froide_enduit_seul = $face_avant_surf_froide_isol_enduit = $face_avant_hauteur_isol = $face_avant_nbr_gonds_reinst = $face_avant_mur_rue = $face_avant_orient = $commentaires_face_avant = "";
@@ -18,7 +31,7 @@ use Dompdf\Options;
     $face_supp1_rep1 = $face_supp1_rep2 = $face_supp1_rep3 = $face_supp1_rep4 = $photos_face_supp1 = $face_supp1_rail_dep = $face_supp1_couronnement = $face_supp1_descente_ep = $face_supp1_nbr_gonds = $face_supp1_ml = $face_supp1_surf_chaud = $face_supp1_surf_froide_enduit = $face_supp1_surf_froide_enduit_seul = $face_supp1_surf_froide_isol_enduit = $face_supp1_hauteur_isol = $face_supp1_nbr_gonds_reinst = $face_supp1_mur_rue = $face_supp1_orient = $commentaires_face_supp1 = "";
     $face_supp2_rep1 = $face_supp2_rep2 = $face_supp2_rep3 = $face_supp2_rep4 = $photos_face_supp2 = $face_supp2_rail_dep = $face_supp2_couronnement = $face_supp2_descente_ep = $face_supp2_nbr_gonds = $face_supp2_ml = $face_supp2_surf_chaud = $face_supp2_surf_froide_enduit = $face_supp2_surf_froide_enduit_seul = $face_supp2_surf_froide_isol_enduit = $face_supp2_hauteur_isol = $face_supp2_nbr_gonds_reinst = $face_supp2_mur_rue = $face_supp2_orient = $commentaires_face_supp2 = "";
     $face_supp3_rep1 = $face_supp3_rep2 = $face_supp3_rep3 = $face_supp3_rep4 = $photos_face_supp3 = $face_supp3_rail_dep = $face_supp3_couronnement = $face_supp3_descente_ep = $face_supp3_nbr_gonds = $face_supp3_ml = $face_supp3_surf_chaud = $face_supp3_surf_froide_enduit = $face_supp3_surf_froide_enduit_seul = $face_supp3_surf_froide_isol_enduit = $face_supp3_hauteur_isol = $face_supp3_nbr_gonds_reinst = $face_supp3_mur_rue = $face_supp3_orient = $commentaires_face_supp3 = "";
-    $firstnameError = $nameError = $villeError = $code_postalError = $adresseError = $annee_construcError = $altitudeError = $surfaceError = $facade_princError = $nbr_niveau_totError = $nbr_niveau_chaufError = $nbr_prsn_foyerError = $photos_maisonError = $photos_environnementError = $epaisseur_isolant_plancher_hautError = $resistance_plancher_hautError = $annee_pose_isol_plancher_hautError = $epaisseur_isolant_mur_exterError = $resistance_mur_exterError = $annee_pose_isol_mur_exterError = $presence_isolError = $epaisseur_isolant_plancher_basError = $resistance_plancher_basError = $annee_pose_isol_plancher_basError = "";
+    $firstnameError = $nameError = $villeError = $code_postalError = $adresseError = $annee_construcError = $altitudeError = $surfaceError = $facade_princError = $nbr_niveau_totError = $nbr_niveau_chaufError = $nbr_prsn_foyerError = $photos_maisonError = $photos_environnementError = $epaisseur_isolant_plancher_hautError = $resistance_plancher_hautError = $annee_pose_isol_plancher_hautError = $epaisseur_isolant_mur_exterError = $resistance_mur_exterError = $annee_pose_isol_mur_exterError = $presence_isolError = $epaisseur_isolant_plancher_basError = $resistance_plancher_basError = $annee_pose_isol_plancher_basError = $photos_groupe_exterError = $photos_cablesError = "";
     $emailTo = "abdenourgarti22@gmail.com";
 
     if (isset($_POST['contact'])) { 
@@ -243,11 +256,12 @@ use Dompdf\Options;
         
         $messageErrorExtension = "Extentions autorisées 'png' ou 'jpeg'";
         $extensions_files_autorisees = array('.png', '.PNG', '.jpg', '.JPG');
+        $photos_maison1 = $photos_maison2 = $photos_environnement1 = $photos_environnement2 = "";
         if (isset($_FILES['photos-maison'])) {
             if(!empty($_FILES['photos-maison'])){
                 $files = $_FILES['photos-maison'];
                 $total_files = count($files['name']);
-                
+                $base_path = dirname($_SERVER['PHP_SELF']);
                 for ($i = 0; $i < $total_files; $i++) {
                     $photos_maison_name = $files['name'][$i];
                     $photos_maison_extension = strtolower(strrchr($photos_maison_name, '.'));
@@ -256,9 +270,13 @@ use Dompdf\Options;
 
                     if (in_array($photos_maison_extension, $extensions_files_autorisees)) {
                         if (move_uploaded_file($photos_maison_tmp_name, $photos_maison_dest)) {
-                            echo 'Fichier ' . $photos_maison_name . ' envoyé avec succès<br>';
+                            if($i < 5){
+                                $photos_maison1 .= '<img class="img" src="files/photos-maison/'.$photos_maison_name.'"><br>';
+                            }else{
+                                $photos_maison2 .= '<img class="img" src="files/photos-maison/'.$photos_maison_name.'"><br>';
+                            }
                         } else {
-                            echo "Le fichier " . $photos_maison_name . " n'a pas pu être envoyé<br>";
+                            echo "Le fichier " . $photos_maison_name . " n'a pas pu être envoyé\n";
                         }
                     } else {
                         $photos_maisonError = $messageErrorExtension;
@@ -284,6 +302,7 @@ use Dompdf\Options;
             
                 $files = $_FILES['photos-environnement'];
                 $total_files = count($files['name']);
+                
                 if($total_files > 0){    
                     for ($i = 0; $i < $total_files; $i++) {
                         $photos_environnement_name = $files['name'][$i];
@@ -293,9 +312,13 @@ use Dompdf\Options;
 
                         if (in_array($photos_environnement_extension, $extensions_files_autorisees)) {
                             if (move_uploaded_file($photos_environnement_tmp_name, $photos_environnement_dest)) {
-                                echo 'Fichier ' . $photos_environnement_name . ' envoyé avec succès<br>';
+                                if($i < 5){
+                                    $photos_environnement1 .= '<img class="img" src="files/photos-environnement/'.$photos_environnement_name.'"><br>';
+                                }else{
+                                    $photos_environnement2 .= '<img class="img" src="files/photos-environnement/'.$photos_environnement_name.'"><br>';
+                                }
                             } else {
-                                echo "Le fichier " . $photos_environnement_name . " n'a pas pu être envoyé<br>";
+                                echo "Le fichier " . $photos_environnement_name . " n'a pas pu être envoyé\n";
                             }
                         } else {
                             $photos_environnementError = $messageErrorExtension;
@@ -305,6 +328,7 @@ use Dompdf\Options;
             }
             
         }
+        $img_carac_comble = "";
         if (isset($_FILES['img-carac-comble'])) {
             if(!empty($_FILES['img-carac-comble'])){
                 $img_carac_comble_name = $_FILES['img-carac-comble']['name'];
@@ -313,14 +337,15 @@ use Dompdf\Options;
                 $img_carac_comble_dest = 'files/img-carac-comble/'. $img_carac_comble_name;
                 if(in_array($img_carac_comble_extension, $extensions_files_autorisees)){
                     if(move_uploaded_file($img_carac_comble_tmp_name, $img_carac_comble_dest)){
-                        echo 'fichier envoyer';
-                    }else {echo "n'est pas envoye";}
+                        $img_carac_comble .= '<img class="img" src="files/img-carac-comble/'.$img_carac_comble_name.'"><br>';
+                    }else {echo "Le fichier " . $img_carac_comble_name . " n'a pas pu être envoyé\n";}
                 }else{
                     $img_carac_combleError = $messageErrorExtension;
                     $isSuccess = false;
                 }
             }
         }
+        $img_carac_plafonds = "";
         if (isset($_FILES['img-carac-plafonds'])) {
             if(!empty($_FILES['img-carac-plafonds'])){
                 $img_carac_plafonds_name = $_FILES['img-carac-plafonds']['name'];
@@ -329,8 +354,8 @@ use Dompdf\Options;
                 $img_carac_plafonds_dest = 'files/img-carac-plafonds/'. $img_carac_plafonds_name;
                 if(in_array($img_carac_plafonds_extension, $extensions_files_autorisees)){
                     if(move_uploaded_file($img_carac_plafonds_tmp_name, $img_carac_plafonds_dest)){
-                        echo 'fichier envoyer';
-                    }else {echo "n'est pas envoye";}
+                        $img_carac_plafonds .= '<img class="img" src="files/img-carac-plafonds/'.$img_carac_plafonds_name.'"><br>';
+                    }else {echo "Le fichier " . $img_carac_plafonds_name . " n'a pas pu être envoyé\n";}
                 }else{
                     $img_carac_plafondsError = $messageErrorExtension;
                     $isSuccess = false;
@@ -338,7 +363,7 @@ use Dompdf\Options;
             }
             
         }
-        
+        $photos_plancher_haut = "";
         if (isset($_FILES['photos-plancher-haut'])) {
             if(!empty($_FILES['photos-plancher-haut'])){
                 $files = $_FILES['photos-plancher-haut'];
@@ -352,9 +377,11 @@ use Dompdf\Options;
 
                     if (in_array($photos_plancher_haut_extension, $extensions_files_autorisees)) {
                         if (move_uploaded_file($photos_plancher_haut_tmp_name, $photos_plancher_haut_dest)) {
-                            echo 'Fichier ' . $photos_plancher_haut_name . ' envoyé avec succès<br>';
+                            if($i < 5){
+                                $photos_plancher_haut .= '<img class="img" src="files/photos-plancher-haut/'.$photos_plancher_haut_name.'"><br>';
+                            }
                         } else {
-                            echo "Le fichier " . $photos_plancher_haut_name . " n'a pas pu être envoyé<br>";
+                            echo "Le fichier " . $photos_plancher_haut_name . " n'a pas pu être envoyé\n";
                         }
                     } else {
                         $photos_plancher_hautError = $messageErrorExtension;
@@ -363,6 +390,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_trap = "";
         if (isset($_FILES['photos-trap'])) {
             if(!empty($_FILES['photos-trap'])){
                 $files = $_FILES['photos-trap'];
@@ -376,9 +404,11 @@ use Dompdf\Options;
 
                     if (in_array($photos_trap_extension, $extensions_files_autorisees)) {
                         if (move_uploaded_file($photos_trap_tmp_name, $photos_trap_dest)) {
-                            echo 'Fichier ' . $photos_trap_name . ' envoyé avec succès<br>';
+                            if($i < 5){
+                                $photos_trap .= '<img class="img" src="files/photos-trap/'.$photos_trap_name.'"><br>';
+                            }
                         } else {
-                            echo "Le fichier " . $photos_trap_name . " n'a pas pu être envoyé<br>";
+                            echo "Le fichier " . $photos_trap_name . " n'a pas pu être envoyé\n";
                         }
                     } else {
                         $photos_trapError = $messageErrorExtension;
@@ -387,6 +417,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_spots = "";
         if (isset($_FILES['photos-spots'])) {
             if(!empty($_FILES['photos-spots'])){
                 $files = $_FILES['photos-spots'];
@@ -400,9 +431,11 @@ use Dompdf\Options;
 
                     if (in_array($photos_spots_extension, $extensions_files_autorisees)) {
                         if (move_uploaded_file($photos_spots_tmp_name, $photos_spots_dest)) {
-                            echo 'Fichier ' . $photos_spots_name . ' envoyé avec succès<br>';
+                            if($i < 5){
+                                $photos_spots .= '<img class="img" src="files/photos-spots/'.$photos_spots_name.'"><br>';
+                            }
                         } else {
-                            echo "Le fichier " . $photos_spots_name . " n'a pas pu être envoyé<br>";
+                            echo "Le fichier " . $photos_spots_name . " n'a pas pu être envoyé\n";
                         }
                     } else {
                         $photos_spotsError = $messageErrorExtension;
@@ -411,6 +444,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_acces_camion = "";
         if (isset($_FILES['photos-acces-camion'])) {
             if(!empty($_FILES['photos-acces-camion'])){
                 $files = $_FILES['photos-acces-camion'];
@@ -424,9 +458,11 @@ use Dompdf\Options;
 
                     if (in_array($photos_acces_camion_extension, $extensions_files_autorisees)) {
                         if (move_uploaded_file($photos_acces_camion_tmp_name, $photos_acces_camion_dest)) {
-                            echo 'Fichier ' . $photos_acces_camion_name . ' envoyé avec succès<br>';
+                            if($i < 5){
+                                $photos_acces_camion .= '<img class="img" src="files/photos-acces-camion/'.$photos_acces_camion_name.'"><br>';
+                            }
                         } else {
-                            echo "Le fichier " . $photos_acces_camion_name . " n'a pas pu être envoyé<br>";
+                            echo "Le fichier " . $photos_acces_camion_name . " n'a pas pu être envoyé\n";
                         }
                     } else {
                         $photos_acces_camionError = $messageErrorExtension;
@@ -435,6 +471,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_plancher_bas1 = $photos_plancher_bas2 = $photos_plancher_bas3 ="";
         if (isset($_FILES['photos-plancher-bas'])) {
             if(!empty($_FILES['photos-plancher-bas'])){
                 $files = $_FILES['photos-plancher-bas'];
@@ -448,7 +485,15 @@ use Dompdf\Options;
 
                     if (in_array($photos_plancher_bas_extension, $extensions_files_autorisees)) {
                         if (move_uploaded_file($photos_plancher_bas_tmp_name, $photos_plancher_bas_dest)) {
-                            echo 'Fichier ' . $photos_plancher_bas_name . ' envoyé avec succès<br>';
+                            if($i < 2){
+                                $photos_plancher_bas1 .= '<img class="img" src="files/photos-plancher-bas/'.$photos_plancher_bas_name.'"><br>';
+                            }else{
+                                if($i < 4){
+                                    $photos_plancher_bas2 .= '<img class="img" src="files/photos-plancher-bas/'.$photos_plancher_bas_name.'"><br>';
+                                }else{
+                                    $photos_plancher_bas3 .= '<img class="img" src="files/photos-plancher-bas/'.$photos_plancher_bas_name.'"><br>';
+                                }
+                            }
                         } else {
                             echo "Le fichier " . $photos_plancher_bas_name . " n'a pas pu être envoyé<br>";
                         }
@@ -459,6 +504,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_plan_niveau1 = "";
         if (isset($_FILES['photos-plan-niveau1'])) {
             if(!empty($_FILES['photos-plan-niveau1'])){
                 $files = $_FILES['photos-plan-niveau1'];
@@ -472,7 +518,9 @@ use Dompdf\Options;
 
                     if (in_array($photos_plan_niveau1_extension, $extensions_files_autorisees)) {
                         if (move_uploaded_file($photos_plan_niveau1_tmp_name, $photos_plan_niveau1_dest)) {
-                            echo 'Fichier ' . $photos_plan_niveau1_name . ' envoyé avec succès<br>';
+                            if($i < 5){
+                                $photos_plan_niveau1 .= '<img class="img" src="files/photos-plan-niveau1/'.$photos_plan_niveau1_name.'"><br>';
+                            }
                         } else {
                             echo "Le fichier " . $photos_plan_niveau1_name . " n'a pas pu être envoyé<br>";
                         }
@@ -483,6 +531,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_plan_niveau2 = "";
         if (isset($_FILES['photos-plan-niveau2'])) {
             if(!empty($_FILES['photos-plan-niveau2'])){
                 $files = $_FILES['photos-plan-niveau2'];
@@ -496,7 +545,9 @@ use Dompdf\Options;
 
                     if (in_array($photos_plan_niveau2_extension, $extensions_files_autorisees)) {
                         if (move_uploaded_file($photos_plan_niveau2_tmp_name, $photos_plan_niveau2_dest)) {
-                            echo 'Fichier ' . $photos_plan_niveau2_name . ' envoyé avec succès<br>';
+                            if($i < 5){
+                                $photos_plan_niveau2 .= '<img class="img" src="files/photos-plan-niveau2/'.$photos_plan_niveau2_name.'"><br>';
+                            }
                         } else {
                             echo "Le fichier " . $photos_plan_niveau2_name . " n'a pas pu être envoyé<br>";
                         }
@@ -507,6 +558,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_plan_niveau3 = "";
         if (isset($_FILES['photos-plan-niveau3'])) {
             if(!empty($_FILES['photos-plan-niveau3'])){
                 $files = $_FILES['photos-plan-niveau3'];
@@ -520,7 +572,9 @@ use Dompdf\Options;
 
                     if (in_array($photos_plan_niveau3_extension, $extensions_files_autorisees)) {
                         if (move_uploaded_file($photos_plan_niveau3_tmp_name, $photos_plan_niveau3_dest)) {
-                            echo 'Fichier ' . $photos_plan_niveau3_name . ' envoyé avec succès<br>';
+                            if($i < 5){
+                                $photos_plan_niveau3 .= '<img class="img" src="files/photos-plan-niveau3/'.$photos_plan_niveau3_name.'"><br>';
+                            }
                         } else {
                             echo "Le fichier " . $photos_plan_niveau3_name . " n'a pas pu être envoyé<br>";
                         }
@@ -531,6 +585,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_face_avant = "";
         if (isset($_FILES['photos-face-avant'])) {
             if(!empty($_FILES['photos-face-avant'])){
                 $photos_face_avant_name = $_FILES['photos-face-avant']['name'];
@@ -539,7 +594,7 @@ use Dompdf\Options;
                 $photos_face_avant_dest = 'files/photos-face-avant/'. $photos_face_avant_name;
                 if(in_array($photos_face_avant_extension, $extensions_files_autorisees)){
                     if(move_uploaded_file($photos_face_avant_tmp_name, $photos_face_avant_dest)){
-                        echo 'fichier envoyer';
+                        $photos_face_avant .= '<img class="face-img" src="files/photos-face-avant/'.$photos_face_avant_name.'"><br>';
                     }else {echo "n'est pas envoye";}
                 }else{
                     $photos_face_avantError = $messageErrorExtension;
@@ -547,6 +602,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_face_gauche = "";
         if (isset($_FILES['photos-face-gauche'])) {
             if(!empty($_FILES['photos-face-gauche'])){
                 $photos_face_gauche_name = $_FILES['photos-face-gauche']['name'];
@@ -555,7 +611,7 @@ use Dompdf\Options;
                 $photos_face_gauche_dest = 'files/photos-face-gauche/'. $photos_face_gauche_name;
                 if(in_array($photos_face_gauche_extension, $extensions_files_autorisees)){
                     if(move_uploaded_file($photos_face_gauche_tmp_name, $photos_face_gauche_dest)){
-                        echo 'fichier envoyer';
+                        $photos_face_gauche .= '<img class="face-img" src="files/photos-face-gauche/'.$photos_face_gauche_name.'"><br>';
                     }else {echo "n'est pas envoye";}
                 }else{
                     $photos_face_gaucheError = $messageErrorExtension;
@@ -563,6 +619,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_face_droite = "";
         if (isset($_FILES['photos-face-droite'])) {
             if(!empty($_FILES['photos-face-droite'])){
                 $photos_face_droite_name = $_FILES['photos-face-droite']['name'];
@@ -571,7 +628,7 @@ use Dompdf\Options;
                 $photos_face_droite_dest = 'files/photos-face-droite/'. $photos_face_droite_name;
                 if(in_array($photos_face_droite_extension, $extensions_files_autorisees)){
                     if(move_uploaded_file($photos_face_droite_tmp_name, $photos_face_droite_dest)){
-                        echo 'fichier envoyer';
+                        $photos_face_droite .= '<img class="face-img" src="files/photos-face-droite/'.$photos_face_droite_name.'"><br>';
                     }else {echo "n'est pas envoye";}
                 }else{
                     $photos_face_droiteError = $messageErrorExtension;
@@ -579,6 +636,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_face_arriere = "";
         if (isset($_FILES['photos-face-arriere'])) {
             if(!empty($_FILES['photos-face-arriere'])){
                 $photos_face_arriere_name = $_FILES['photos-face-arriere']['name'];
@@ -587,7 +645,7 @@ use Dompdf\Options;
                 $photos_face_arriere_dest = 'files/photos-face-arriere/'. $photos_face_arriere_name;
                 if(in_array($photos_face_arriere_extension, $extensions_files_autorisees)){
                     if(move_uploaded_file($photos_face_arriere_tmp_name, $photos_face_arriere_dest)){
-                        echo 'fichier envoyer';
+                        $photos_face_arriere .= '<img class="face-img" src="files/photos-face-arriere/'.$photos_face_arriere_name.'"><br>';
                     }else {echo "n'est pas envoye";}
                 }else{
                     $photos_face_arriereError = $messageErrorExtension;
@@ -595,6 +653,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_face_supp1 = "";
         if (isset($_FILES['photos-face-supp1'])) {
             if(!empty($_FILES['photos-face-supp1'])){
                 $photos_face_supp1_name = $_FILES['photos-face-supp1']['name'];
@@ -603,7 +662,7 @@ use Dompdf\Options;
                 $photos_face_supp1_dest = 'files/photos-face-supp1/'. $photos_face_supp1_name;
                 if(in_array($photos_face_supp1_extension, $extensions_files_autorisees)){
                     if(move_uploaded_file($photos_face_supp1_tmp_name, $photos_face_supp1_dest)){
-                        echo 'fichier envoyer';
+                        $photos_face_supp1 .= '<img class="face-img" src="files/photos-face-supp1/'.$photos_face_supp1_name.'"><br>';
                     }else {echo "n'est pas envoye";}
                 }else{
                     $photos_face_supp1Error = $messageErrorExtension;
@@ -611,6 +670,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_face_supp2 = "";
         if (isset($_FILES['photos-face-supp2'])) {
             if(!empty($_FILES['photos-face-supp2'])){
                 $photos_face_supp2_name = $_FILES['photos-face-supp2']['name'];
@@ -619,7 +679,7 @@ use Dompdf\Options;
                 $photos_face_supp2_dest = 'files/photos-face-supp2/'. $photos_face_supp2_name;
                 if(in_array($photos_face_supp2_extension, $extensions_files_autorisees)){
                     if(move_uploaded_file($photos_face_supp2_tmp_name, $photos_face_supp2_dest)){
-                        echo 'fichier envoyer';
+                        $photos_face_supp2 .= '<img class="face-img" src="files/photos-face-supp2/'.$photos_face_supp2_name.'"><br>';
                     }else {echo "n'est pas envoye";}
                 }else{
                     $photos_face_supp2Error = $messageErrorExtension;
@@ -627,6 +687,7 @@ use Dompdf\Options;
                 }
             }
         }
+        $photos_face_supp3 = "";
         if (isset($_FILES['photos-face-supp3'])) {
             if(!empty($_FILES['photos-face-supp3'])){
                 $photos_face_supp3_name = $_FILES['photos-face-supp3']['name'];
@@ -635,7 +696,7 @@ use Dompdf\Options;
                 $photos_face_supp3_dest = 'files/photos-face-supp3/'. $photos_face_supp3_name;
                 if(in_array($photos_face_supp3_extension, $extensions_files_autorisees)){
                     if(move_uploaded_file($photos_face_supp3_tmp_name, $photos_face_supp3_dest)){
-                        echo 'fichier envoyer';
+                        $photos_face_supp3 .= '<img class="face-img" src="files/photos-face-supp3/'.$photos_face_supp3_name.'"><br>';
                     }else {echo "n'est pas envoye";}
                 }else{
                     $photos_face_supp3Error = $messageErrorExtension;
@@ -1531,31 +1592,8 @@ use Dompdf\Options;
                 }
             }
 
-            supprimfile("photos-maison");
-            supprimfile("img-carac-comble");
-            supprimfile("img-carac-plafonds");
-            supprimfile("photos-acces-camion");
-            supprimfile("photos-environnement");
-            supprimfile("photos-face-avant");
-            supprimfile("photos-face-gauche");
-            supprimfile("photos-face-droite");
-            supprimfile("photos-face-arriere");
-            supprimfile("photos-face-supp1");
-            supprimfile("photos-face-supp2");
-            supprimfile("photos-face-supp3");
-            supprimfile("photos-plan-niveau1");
-            supprimfile("photos-plan-niveau2");
-            supprimfile("photos-plan-niveau3");
-            supprimfile("photos-plancher-bas");
-            supprimfile("photos-plancher-haut");
-            supprimfile("photos-spots");
-            supprimfile("photos-trap");
-            
-        if($isSuccess) {
-            
-            $emailText .= $image . "\n";
-            $headers = "From: " . $name . " " . $firstname;
-            mail($emailTo, "Un message de votre site", $emailText, $headers);
+
+
 
             $html = '<!DOCTYPE html>
                     <html>
@@ -1569,7 +1607,7 @@ use Dompdf\Options;
                                 table {
                                     border-collapse: collapse;
                                     width: 100%;
-                                    
+                                    margin-bottom: 100px;
                                     
                                 }
                                 thead, tbody{
@@ -1581,8 +1619,8 @@ use Dompdf\Options;
                                     text-align: center;
                                 }
                                 .td-image{
-                                    height: 600px;
-                                    
+                                    height: 770px;
+                                    margin-bottom:100px;
                                 }
                                 .td-image img, .td-image1 img{
                                     max-width: 90%;
@@ -1591,7 +1629,7 @@ use Dompdf\Options;
                                     margin-bottom: 10px;
                                 }
                                 .td-image1{
-                                    height: 580px;
+                                    height: 420px;
                                 }
                                 
                                 .col-4{
@@ -1621,8 +1659,8 @@ use Dompdf\Options;
                                     margin-top: 0;
                                 }
                                 li{
-                                    
-                                    margin: 3px;
+                                    font-size:18px;
+                                    margin: 5px;
                                 }
                                 h1{
                                     font-weight: bold;
@@ -1655,8 +1693,8 @@ use Dompdf\Options;
                             
                         </head>
                         <body>
-                            <div class="row">
-                                <center><h1>Fiche Navette – Audit Energétique</h1></center>
+                            <div style="margin-bottom:300px;">
+                                <h1>Fiche Navette – Audit Energétique</h1>
                                 <h2>Date de Pré-visite :</h2>
                                 <h2>Données Client :</h2>
                                 <ul>
@@ -1686,19 +1724,25 @@ use Dompdf\Options;
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>';
+                                    <tr>
+                                        <td class="td-image col-4">'.$photos_maison1.'</td>
+                                        <td class="td-image col-4">'.$photos_maison2.'</td>
+                                        <td class="td-image col-4">'.$photos_environnement1.'</td>
+                                        <td class="td-image col-4">'.$photos_environnement2.'</td>
+                                      
+                                    </tr>
                                     
                                         
                                     
-                                    $html .= insertimages2td("photos-maison") . insertimages2td("photos-environnement") .'</tr>
+                                    
                                 </tbody>
                                 
-                            </table><br><br>
+                            </table><br><br><br>
                             <div style="margin-bottom: 10px;">
                                 <h2>Caractéristiques des combles et plancher :</h2>
-                                <ul class="ul">' . insertimage("img-carac-comble") .'
+                                <ul class="ul">' . $img_carac_comble .'
                                     <li>Caractéristiques des plafonds : '.$carac_plafonds.'</li>
-                                    ' . insertimage("img-carac-plafonds") .'
+                                    ' . $img_carac_plafonds .'
                                     <li>Caractéristique des planchers : '.$carac_placher.'</li>
                                     <li>Enfouissement du sous-sol : '.$enfouis_sous_sol.'</li>
                                     <li>Enfouissement du bâtiment : '.$enfouis_batiment.'</li>
@@ -1723,8 +1767,9 @@ use Dompdf\Options;
                                 </ul>
                             </div><br><br>
                             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                            <h3>Plancher haut des combles :</h3> 
-                            <div style="margin-bottom: 250px;">
+                            
+                            <div style="margin-bottom: 350px;">
+                                <h3>Plancher haut des combles :</h3> 
                                 <ul class="ul">
                                     
                                     <li>Composition de Plancher Haut des combles : '.$compos_plancher_haut.'</li>
@@ -1753,27 +1798,25 @@ use Dompdf\Options;
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Photo(s) plancher haut des
-                                                combles
-                                                </th>
-                                            <th>Photo
-                                                (
-                                                s
-                                                ) spots ou boîtiers</th>
+                                            <th>Photo(s) plancher haut des combles</th>
+                                            <th>Photo(s) spots ou boîtiers</th>
                                             <th>Photo(s) trappe</th>
                                             <th>Photo(s) accès camion</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>';
-                                    $html .= insertimages1td("photos-plancher-haut") . insertimages1td("photos-spots") . insertimages1td("photos-trap") . insertimages1td("photos-acces-camion");                                            
-                                    $html .= '</tr>
+                                        <tr>
+                                            <td class="td-image col-4">'.$photos_plancher_haut.'</td>
+                                            <td class="td-image col-4">'.$photos_spots.'</td>
+                                            <td class="td-image col-4">'.$photos_trap.'</td>
+                                            <td class="td-image col-4">'.$photos_acces_camion.'</td>
+                                    </tr>
                                     </tbody>
                                     
                                 </table>
                                 <br><br><br>
                                 <h3>Plancher bas partie chauffée :</h3>
-                                <div style="margin-bottom: 350px;">
+                                <div style="margin-bottom: 5px;">
                                     <ul class="ul">
                                         <li>Composition de Plancher bas partie chauffée : '.$compos_placher_bas_chauf.'</li>
                                         <li>Epaisseur plancher bas partie chauffée (cm) : '.$epaisseur_plancher_bas.'</li>
@@ -1798,7 +1841,11 @@ use Dompdf\Options;
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>'. insertimages3td("photos-plancher-bas") .' </tr>
+                                        <tr>
+                                            <td class="td-image1 col-3">'.$photos_plancher_bas1.'</td>
+                                            <td class="td-image1 col-3">'.$photos_plancher_bas2.'</td>
+                                            <td class="td-image1 col-3">'.$photos_plancher_bas3.'</td>
+                                        </tr>
                                     </tbody>
                                     
                                 </table><br><br><br><br>
@@ -1813,7 +1860,12 @@ use Dompdf\Options;
                                         </tr>
                                     </thead>
                                     <tbody style="margin-top: 0;">
-                                        <tr> <td class="td-image col-4"></td>'. insertimages1td("photos-plan-niveau1") . insertimages1td("photos-plan-niveau2") . insertimages1td("photos-plan-niveau3") .'</tr>
+                                        <tr> 
+                                            <td class="td-image col-4"></td>
+                                            <td class="td-image col-4">'.$photos_plan_niveau1.'</td>
+                                            <td class="td-image col-4">'.$photos_plan_niveau2.'</td>
+                                            <td class="td-image col-4">'.$photos_plan_niveau3.'</td>
+                                        </tr>
                                     </tbody>
                                     
                                 </table><br><br>
@@ -1827,7 +1879,7 @@ use Dompdf\Options;
                                             <li>Repère schéma 3 : '.$face_avant_rep3.'</li>
                                             <li>Repère schéma 4 : '.$face_avant_rep4.'</li>
                                         </ul>
-                                        ' . insertimageface("photos-face-avant") .'
+                                        ' . $photos_face_avant .'
                                     </div>
                                     <div class="right">
                                         <ul class="ul">
@@ -1859,7 +1911,7 @@ use Dompdf\Options;
                                             <li>Repère schéma 3 : '.$face_gauche_rep3.'</li>
                                             <li>Repère schéma 4 : '.$face_gauche_rep4.'</li>
                                         </ul>
-                                        ' . insertimageface("photos-face-gauche") .'
+                                        ' . $photos_face_gauche .'
                                     </div>
                                     <div class="right">
                                         <ul class="ul">
@@ -1891,7 +1943,7 @@ use Dompdf\Options;
                                             <li>Repère schéma 3 : '.$face_droite_rep3.'</li>
                                             <li>Repère schéma 4 : '.$face_droite_rep4.'</li>
                                         </ul>
-                                        ' . insertimageface("photos-face-droite") .'
+                                        ' . $photos_face_droite .'
                                     </div>
                                     <div class="right">
                                         <ul class="ul">
@@ -1923,7 +1975,7 @@ use Dompdf\Options;
                                             <li>Repère schéma 3 : '.$face_arriere_rep3.'</li>
                                             <li>Repère schéma 4 : '.$face_arriere_rep4.'</li>
                                         </ul>
-                                        ' . insertimageface("photos-face-arriere") .'
+                                        ' . $photos_face_arriere .'
                                     </div>
                                     <div class="right">
                                         <ul class="ul">
@@ -1955,7 +2007,7 @@ use Dompdf\Options;
                                             <li>Repère schéma 3 : '.$face_supp1_rep3.'</li>
                                             <li>Repère schéma 4 : '.$face_supp1_rep4.'</li>
                                         </ul>
-                                        ' . insertimageface("photos-face-supp1") .'
+                                        ' . $photos_face_supp1 .'
                                     </div>
                                     <div class="right">
                                         <ul class="ul">
@@ -1987,7 +2039,7 @@ use Dompdf\Options;
                                             <li>Repère schéma 3 : '.$face_supp2_rep3.'</li>
                                             <li>Repère schéma 4 : '.$face_supp2_rep4.'</li>
                                         </ul>
-                                        ' . insertimageface("photos-face-supp2") .'
+                                        ' . $photos_face_supp2 .'
                                     </div>
                                     <div class="right">
                                         <ul class="ul">
@@ -2019,7 +2071,7 @@ use Dompdf\Options;
                                             <li>Repère schéma 3 : '.$face_supp3_rep3.'</li>
                                             <li>Repère schéma 4 : '.$face_supp3_rep4.'</li>
                                         </ul>
-                                        ' . insertimageface("photos-face-supp3") .'
+                                        ' . $photos_face_supp3 .'
                                     </div>
                                     <div class="right">
                                         <ul class="ul">
@@ -2045,28 +2097,29 @@ use Dompdf\Options;
                                     <li><h2>Isolation des murs par l’extérieur :</h2></li>
                                     <ul class="ul">
                                         <li>Commentaires ITE : '.$commentaires_ite.'</li>
-                                        <li>Totaux ITE :</li>
+                                        <li><strong>Totaux ITE :</strong></li>
                                         <li>Total surfaces surfaces chaudes (iso + enduit) : '.$totat_surf_chaud.'</li>
                                         <li>Total surfaces froides avec enduit seul : '.$totat_surf_froid_enduit.'</li>
-                                        <li>Total surfaces froides isolant + enduit (pour éviter décroché) : </li>
-                                        <li>Total Ml couronnement de toit : </li>
-                                        <li>Total nombre de gonds à réinstaller : </li>
-                                        <li>Total Ml convertines : </li>
-                                        <li>Descriptif travaux ITE :</li>
-                                        <li>Choix du coloris (RAL) :</li>
-                                        <li>Changement de la couleur existante : </li>
-                                        <li>Pompe A Chaleur (groupe extérieur) : </li>
+                                        <li>Total surfaces froides isolant + enduit (pour éviter décroché) : '.$totat_surf_froid_isol_enduit.'</li>
+                                        <li>Total Ml couronnement de toit : '.$totat_ml_cournement_toit.'</li>
+                                        <li>Total nombre de gonds à réinstaller : '.$totat_nbr_gonds_reinst.'</li>
+                                        <li>Total Ml convertines : '.$totat_ml_convert.'</li>
+                                        <li><strong>Descriptif travaux ITE :</strong></li>
+                                        <li>Choix du coloris (RAL) : '.$choix_coloris.'</li>
+                                        <li>Changement de la couleur existante : '.$change_color.'</li>
+                                        <li>Pompe A Chaleur (groupe extérieur) : '.$pompe_chaleur.'</li>
+                                        <li>Si oui, nombre :</li>
                                         <ul>
-                                            <li>Si oui, nombre :</li>
-                                            <li>Espace disponible derrière le groupe extérieur (cm) :</li>
+                                            
+                                            <li>Espace disponible derrière le groupe extérieur (cm) : '.$espace_dispo_deriere.'</li>
                                             
                                         </ul>
-                                        <li>Ventouse évacuation à prolonger : </li>
-                                        <li>Demande intervention ENEDIS / France Télécom : </li>
-                                        <li>Nécessité de prévenir le voisin : </li>
-                                        <li>Mur en limite de voirie nécessitant accord de la mairie : </li>
-                                        <li>Accès chantier : </li>
-                                        <li>Commentaires :</li>
+                                        <li>Ventouse évacuation à prolonger : '.$ventouse_evacuat.'</li>
+                                        <li>Demande intervention ENEDIS / France Télécom : '.$demande_intervent_enedis.'</li>
+                                        <li>Nécessité de prévenir le voisin : '.$necessite_prevenir_voisin.'</li>
+                                        <li>Mur en limite de voirie nécessitant accord de la mairie : '.$mur_limite_accord_mairie.'</li>
+                                        <li>Accès chantier : '.$acces_chantier.'</li>
+                                        <li>Commentaires : '.$commentaires_travaux_ite.'</li>
                                     </ul>
                                 </ul>
                             
@@ -2076,10 +2129,38 @@ use Dompdf\Options;
             $dompdf->loadHtml($html);
             $dompdf->render();
             $dompdf->stream("formulaire.pdf");
+            // $html2pdf->writeHTML($html);
+            // $html2pdf->output("document.pdf","D");
+
 
             
+            
+        if($isSuccess) {
+            
+            $emailText .= $image . "\n";
+            $headers = "From: " . $name . " " . $firstname;
+            mail($emailTo, "Un message de votre site", $emailText, $headers);           
         }
-           
+        sleep(30);
+        supprimfile("photos-maison");
+        supprimfile("img-carac-comble");
+        supprimfile("img-carac-plafonds");
+        supprimfile("photos-acces-camion");
+        supprimfile("photos-environnement");
+        supprimfile("photos-face-avant");
+        supprimfile("photos-face-gauche");
+        supprimfile("photos-face-droite");
+        supprimfile("photos-face-arriere");
+        supprimfile("photos-face-supp1");
+        supprimfile("photos-face-supp2");
+        supprimfile("photos-face-supp3");
+        supprimfile("photos-plan-niveau1");
+        supprimfile("photos-plan-niveau2");
+        supprimfile("photos-plan-niveau3");
+        supprimfile("photos-plancher-bas");
+        supprimfile("photos-plancher-haut");
+        supprimfile("photos-spots");
+        supprimfile("photos-trap");
     }
     function test_input($data) {
       $data = trim($data);
@@ -2087,6 +2168,7 @@ use Dompdf\Options;
       $data = htmlspecialchars($data);
       return $data;
     }
+           
  
 ?>
 <!DOCTYPE html>
@@ -3562,6 +3644,17 @@ use Dompdf\Options;
                             <textarea id="commentaires_travaux_ite" name="commentaires_travaux_ite" class="form-control" placeholder="Votre commentaires" rows="2"><?php echo $commentaires_travaux_ite;?></textarea>
                             <p class="comments"></p>
                         </div>
+                        <!--<div class="mb-3">
+                            <label for="photos_groupe_exter" class="form-label">Photo groupe extérieur (écart mur) <span class="blue">*</span></label>
+                            <input class="form-control" type="file" name="photos_groupe_exter[]" multiple>
+                            <p class="comments"><?php {echo $photos_groupe_exterError;} ?></p>
+                          </div>
+                          <div class="mb-3">
+                            <label for="photos_cables" class="form-label">Photo(s) cable(s) <span class="blue">*</span></label>
+                            <input class="form-control" type="file" id="photos_cables" name="photos_cables[]" multiple>
+                            <p class="comments"><?php {echo $photos_cablesError;} ?></p>
+                          </div>-->
+                          <br>
                         <div class="col-6">
                             <button type="button" class="button1 prev"><i class="bi bi-arrow-left-circle"></i> Précedant</button>
                             
